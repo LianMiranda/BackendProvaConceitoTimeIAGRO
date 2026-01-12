@@ -1,0 +1,14 @@
+* text=auto eol=lf
+
+# C#
+*.cs     text eol=lf
+*.csproj text eol=lf
+*.sln    text eol=lf
+
+# Scripts
+*.sh     text eol=lf
+
+# Configs
+*.json   text eol=lf
+*.yml    text eol=lf
+*.yaml   text eol=lf
