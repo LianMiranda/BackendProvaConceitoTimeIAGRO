@@ -50,7 +50,7 @@ public class BooksController : ControllerBase
             };
 
             var results = await _bookService.SearchBooksAsync(searchDto);
-            return Ok(results);
+            return Ok(new { Data = results });
         }
         catch (Exception ex)
         {
@@ -65,7 +65,7 @@ public class BooksController : ControllerBase
     /// <param name="bookId">Book ID</param>
     /// <returns>Valor do frete</returns>
     [HttpGet("{bookId}/shipping")]
-    [ProducesResponseType( StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<decimal>> CalculateShipping([FromRoute] int bookId)
@@ -73,13 +73,13 @@ public class BooksController : ControllerBase
         try
         {
             var result = await _bookService.CalculateShippingAsync(bookId);
-            
+
             if (result == null)
             {
                 return NotFound($"Book with ID {bookId} not found");
             }
 
-            return Ok(result);
+            return Ok(new { ShippingCost = result });
         }
         catch (Exception ex)
         {
