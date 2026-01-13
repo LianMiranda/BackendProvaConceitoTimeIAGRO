@@ -17,6 +17,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5264F9DC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Domain.Tests", "tests\Project.Domain.Tests\Project.Domain.Tests.csproj", "{6664DE83-C18A-44BD-8898-EF817CCDBC68}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Application.Tests", "tests\Project.Application.Tests\Project.Application.Tests.csproj", "{21EF66B1-37C9-45C2-8BFC-0707880244D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Infrastructure.Tests", "tests\Project.Infrastructure.Tests\Project.Infrastructure.Tests.csproj", "{084BCF4E-0B78-4BE9-B588-8CF751BD5810}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.API.Tests", "tests\Project.API.Tests\Project.API.Tests.csproj", "{50462CA5-59F5-4BE4-99B0-EC16E54F2B76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
