@@ -26,7 +26,7 @@ public class BooksControllerTests
             _loggerMock.Object
         );
     }
-    
+
     [Fact]
     public async Task SearchBooks_ShouldReturnOk_WhenServiceReturnsBooks()
     {
@@ -45,8 +45,9 @@ public class BooksControllerTests
         );
 
         var okResult = Assert.IsType<OkObjectResult>(result.Result);
-        var value = Assert.IsAssignableFrom<IEnumerable<Book>>(okResult.Value);
 
+        var value = (IEnumerable<Book>)okResult.Value.GetType().GetProperty("Data")?.GetValue(okResult.Value);
+        Assert.NotNull(value);
         Assert.Single(value);
         Assert.Equal("Clean Code", value.First().Name);
     }
@@ -102,7 +103,9 @@ public class BooksControllerTests
         var result = await _controller.CalculateShipping(1);
 
         var okResult = Assert.IsType<OkObjectResult>(result.Result);
-        Assert.Equal(20m, okResult.Value);
+
+        var shippingCost = (decimal)okResult.Value.GetType().GetProperty("ShippingCost")?.GetValue(okResult.Value);
+        Assert.Equal(20m, shippingCost);
     }
 
     [Fact]
