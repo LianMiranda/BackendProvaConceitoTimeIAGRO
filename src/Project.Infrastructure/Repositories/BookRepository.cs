@@ -20,6 +20,9 @@ namespace Project.Infrastructure.Repositories
         /// Busca todos os livros do arquivo JSON
         /// Implementa cache em memória para evitar leitura repetida
         /// </summary>
+        /// <returns>
+        /// Lista de todos os livros
+        /// </returns>
         public async Task<IEnumerable<Book>> GetAllAsync()
         {
             if (_cachedBooks != null)
@@ -57,6 +60,9 @@ namespace Project.Infrastructure.Repositories
         /// <summary>
         /// Busca um livro específico por ID
         /// </summary>
+        /// <returns>
+        /// Livro com o id especificado ou NULL 
+        /// </returns>
         public async Task<Book?> GetByIdAsync(int id)
         {
             var books = await GetAllAsync();
